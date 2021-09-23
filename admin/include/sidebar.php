@@ -29,6 +29,15 @@
 			</li>
 		</ul>
 
+		<ul class="widget-menu unstyled">
+			<li>
+				<a href="manage-doctor.php">
+					<i class="menu-icon icon-group"></i>
+					Manage Doctors
+				</a>
+			</li>
+		</ul>
+
 
 		<ul class="widget-menu unstyled">
 			<li><a href="insert-product.php"><i class="menu-icon icon-paste"></i>Insert Product </a></li>
