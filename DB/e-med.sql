@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2021 at 02:45 PM
+-- Generation Time: Sep 23, 2021 at 05:45 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -99,7 +99,10 @@ CREATE TABLE `doctors` (
   `email` varchar(50) DEFAULT NULL,
   `pass` varchar(50) DEFAULT NULL,
   `contact_no` varchar(20) DEFAULT NULL,
+  `imgpath` varchar(1000) DEFAULT NULL,
   `token` varchar(100) DEFAULT NULL,
+  `featured` varchar(10) NOT NULL DEFAULT 'no',
+  `featured_date` date DEFAULT NULL,
   `speciality` varchar(20) DEFAULT NULL,
   `visit_fee` varchar(10) DEFAULT NULL,
   `chamber_time_start` varchar(10) DEFAULT NULL,
@@ -112,8 +115,30 @@ CREATE TABLE `doctors` (
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`id`, `name`, `email`, `pass`, `contact_no`, `token`, `speciality`, `visit_fee`, `chamber_time_start`, `chamber_time_end`, `status`, `reg_date`) VALUES
-(0, 'Afroza Sultana', 'demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456789', 'bbab683c29a53632323d2dc9339e45', 'Neurosurgeon', '500', '10 AM', '2 PM', 1, '2021-09-23 17:28:31');
+INSERT INTO `doctors` (`id`, `name`, `email`, `pass`, `contact_no`, `imgpath`, `token`, `featured`, `featured_date`, `speciality`, `visit_fee`, `chamber_time_start`, `chamber_time_end`, `status`, `reg_date`) VALUES
+(0, 'Afroza Sultana', 'demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456789', 'UIU-Logo-250.png', 'bbab683c29a53632323d2dc9339e45', 'yes', '2021-09-23', 'Neurosurgeon', '5000', '10 AM', '2 PM', 1, '2021-09-23 17:28:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fees`
+--
+
+CREATE TABLE `fees` (
+  `id` int(11) NOT NULL,
+  `ref_id` int(11) DEFAULT NULL,
+  `ref_type` varchar(30) DEFAULT NULL,
+  `remark` varchar(30) DEFAULT NULL,
+  `fee_amount` varchar(30) DEFAULT NULL,
+  `date_time` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fees`
+--
+
+INSERT INTO `fees` (`id`, `ref_id`, `ref_type`, `remark`, `fee_amount`, `date_time`) VALUES
+(0, 0, 'doctor', '02021-09-23emed', '25000', '2021-09-23 21:44:31');
 
 -- --------------------------------------------------------
 
@@ -382,6 +407,12 @@ ALTER TABLE `company`
 -- Indexes for table `doctors`
 --
 ALTER TABLE `doctors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `fees`
+--
+ALTER TABLE `fees`
   ADD PRIMARY KEY (`id`);
 
 --

@@ -13,6 +13,22 @@
     $ref_id = $_GET['ref_id'];
     $remark = $_GET['remark'];
 
+    if(isset($_POST['submit'])){
+        $amount = $_POST['amount'];
+        $ref_type = $_POST['ref_type'];
+        $ref_id = $_POST['ref_id'];
+        $remark = $_POST['remark'];
+        $date = date('Y-m-d');
+        $sql = "INSERT INTO `fees`(`fee_amount`, `ref_type`, `ref_id`, `remark`) VALUES ('$amount',$ref_type,'$ref_id','$remark')";
+        $query = mysqli_query($con,$sql);
+        if($query){
+            $sql = "UPDATE `doctors` SET `featured`='yes', `featured_date`= '$date' WHERE `id`='$ref_id'";
+            $query = mysqli_query($con,$sql);
+            echo "<script>alert('Fee added successfully');</script>";
+            header('location:my-account.php');
+        }
+    }
+
 ?>
 
 
@@ -47,7 +63,11 @@
                         Select Your Payment Method
                     </div>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
+                            <input type = "hidden" name = "amount" value = "<?php echo $amount;?>">
+                            <input type = "hidden" name = "ref_type" value = "<?php echo $ref_type;?>">
+                            <input type = "hidden" name = "ref_id" value = "<?php echo $ref_id;?>">
+                            <input type = "hidden" name = "remark" value = "<?php echo $remark;?>">
                             <img src="https://www.logo.wine/a/logo/BKash/BKash-Icon2-Logo.wine.svg"
                                 class="rounded float-left" alt="..." height="200px" width="200px" ;>
                             <input type="radio" name="paymethod" value="bkash" checked="checked"> Bkash
@@ -58,10 +78,6 @@
 
 
                             <hr>
-
-                            <img src="https://5.imimg.com/data5/NX/QH/SF/SELLER-78615388/cash-on-delivery-jpg-500x500.jpg"
-                                class="rounded" alt="..." height="200px" width="200px">
-                            <input type="radio" name="paymethod" value="Cash on Delivery"> COD
 
                             <img src="https://cdn4.iconfinder.com/data/icons/money-filled-outline/64/money-colored-15-512.png"
                                 class="rounded" alt="..." height="200px" width="200px">

@@ -62,7 +62,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="content-block">
-                                                    <a href="payment.php" style="width:40%" class="btn btn-success">Make Payment</a>
+                                                    <a href="payment.php?amount=25000&ref_id=<?php echo $_SESSION['id'];?>&ref_type='doctor'&remark=<?php echo $invoice; ?>" style="width:40%" class="btn btn-success">Make Payment</a>
                                                 </td>
                                             </tr>
                                         </tbody></table>
