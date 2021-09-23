@@ -1,7 +1,29 @@
 <?php 
 	session_start();
 	error_reporting(0);
-	include('includes/config.php');	
+	include('includes/config.php');
+	if(strlen($_SESSION['login'])==0)
+		{   
+		header('location:login.php');
+	}
+
+	if(isset($_GET['doctor_id'])){
+		$doctor_id = $_GET['doctor_id'];
+		$user_id = $_GET['user_id'];
+		$sql = "INSERT into appointment(`doctor_id`,`user_id`) VALUES('$doctor_id','$user_id')";
+		// echo $sql;
+		// exit();
+		$result = mysqli_query($con,$sql);
+		echo $result;
+		if($result){
+			echo "<script>alert('Appointment successfully booked');</script>";
+			header('location:doc.php');
+		}
+		else{
+			echo "<script>alert('Appointment not booked');</script>";
+			header('location:doc.php');
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +64,7 @@
     <!-- Featured -->
 	<section class="shop">
 		<div class="col-md-12 mt-100" style="text-align:center; padding:50px;">
-			<h1>Featured <span style="color:#E12454">Products</span></h1>
+			<h1>Featured <span style="color:#E12454">Doctors</span></h1>
 		</div>
 
 
@@ -50,36 +72,30 @@
 			<div class="container">
 				<div class="row">
 					<?php
-						$get_product="select * from doctors where feature='yes' order by  DESC LIMIT 0,6 ";
+						$get_product="select * from doctors where 	featured='yes' order by featured_date DESC LIMIT 0,6 ";
 						$run_products=mysqli_query($con,$get_product);
 						
 						while($row_product=mysqli_fetch_array($run_products)){
 							
 							$pro_id=$row_product['id'];
 							$pro_title=$row_product['name'];
-							$pro_price=$row_product['price'];
-							$pro_company=$row_product['company'];
-							$pro_img1=$row_product['image1'];
-							$pro_avail=$row_product['product_availability'];
+							$pro_price=$row_product['visit_fee'];
+							$pro_company=$row_product['speciality'];
+							$pro_img1=$row_product['imgpath'];
+							$id = $_SESSION["id"];
 						?>
 
 					<div class='col-md-4' style='margin-bottom:30px;'>
 						<div class='card' style='width: 18rem; text-align:center;'>
-							<?php echo "<img class='card-img-top' src='admin/images/medicines/$pro_img1'  alt='Card image cap' style='width:250px; height:220px'>"
+							<?php echo "<img class='card-img-top' src='doc/images/$pro_img1'  alt='Card image cap' style='width:250px; height:220px'>"
 									 ?>
 							<div class='card-body'>
 								<h5 class='card-title'><?php echo $pro_title?></h5>
 								<p> BDT <?php echo $pro_price?> </p>
-								<a href='product_details.php?pid=<?php echo $pro_id;?>' class='btn btn-primary'>More
-									Details</a>
-
 								<?php
-											if($pro_avail == 'In Stock'){
-												echo"<a href='index.php?page=product&action=add&pid= $pro_id' class='btn btn-primary' style='background-color:#222222'>Add To Cart</a>";
-											}else{
-												echo"<a href='#' class='btn btn-primary' style='background-color:white; color:red;'>Out of Stock</a>";
-											}
-										?>
+									echo "<a href='doctor_details.php?pid=<?php echo $pro_id;?>' class='btn btn-primary'>More Details</a>";
+									echo"<a href='doc.php?doctor_id=$pro_id&user_id=$id' class='btn btn-primary' style='background-color:#222222'>Get Appointment</a>";
+								?>
 
 
 							</div>
@@ -99,45 +115,37 @@
 
 		<!-- New Products -->
 		<div class="col-md-12 mt-100" style="text-align:center; padding:50px;">
-			<h1>New <span style="color:#E12454">Products</span> </h1>
+			<h1>New <span style="color:#E12454">Doctors</span> </h1>
 		</div>
 
 		<div class="col-md-12">
 			<div class="container">
 				<div class="row">
 					<?php
-						$get_product="select * from medicine order by 1 DESC LIMIT 0,3 ";
+						$get_product="select * from doctors order by 1 DESC LIMIT 0,3 ";
 						$run_products=mysqli_query($con,$get_product);
 						
 						while($row_product=mysqli_fetch_array($run_products)){
 							
 							$pro_id=$row_product['id'];
 							$pro_title=$row_product['name'];
-							$pro_price=$row_product['price'];
-							$pro_company=$row_product['company'];
-							$pro_img1=$row_product['image1'];
-							$pro_avail=$row_product['product_availability'];
+							$pro_price=$row_product['visit_fee'];
+							$pro_company=$row_product['speciality'];
+							$pro_img1=$row_product['imgpath'];
+							$id = $_SESSION["id"];
 						?>
 
 					<div class='col-md-4' style='margin-bottom:30px;'>
 						<div class='card' style='width: 18rem; text-align:center;'>
-							<?php echo "<img class='card-img-top' src='admin/images/medicines/$pro_img1'  alt='Card image cap' style='width:250px; height:220px'>"
+							<?php echo "<img class='card-img-top' src='doc/images/$pro_img1'  alt='Card image cap' style='width:250px; height:220px'>"
 									 ?>
 							<div class='card-body'>
 								<h5 class='card-title'><?php echo $pro_title?></h5>
 								<p> BDT <?php echo $pro_price?> </p>
-								<a href='product_details.php?pid=<?php echo $pro_id;?>' class='btn btn-primary'>More
-									Details</a>
-
-
-
 								<?php
-											if($pro_avail == 'In Stock'){
-												echo"<a href='index.php?page=product&action=add&pid=$pro_id;' class='btn btn-primary' style='background-color:#222222'>Add To Cart</a>";
-											}else{
-												echo"<a href='#' class='btn btn-primary' style='background-color:white; color:red;'>Out of Stock</a>";
-											}
-										?>
+									echo "<a href='doctor_details.php?pid=<?php echo $pro_id;?>' class='btn btn-primary'>More Details</a>";
+									echo"<a href='doc.php?doctor_id=$pro_id&user_id=$id' class='btn btn-primary' style='background-color:#222222'>Get Appointment</a>";
+								?>
 
 
 							</div>
