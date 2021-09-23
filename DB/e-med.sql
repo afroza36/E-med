@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2021 at 10:35 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.2.31
+-- Generation Time: Sep 23, 2021 at 02:45 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,7 +43,32 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`, `registration_date`, `token`) VALUES
 (1, 'admin', 'forallpurposes3@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '2021-06-01 06:13:13', '740fdae9834f48e13cef70270007e0'),
-(2, 'demo', 'ximnewaz@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '2021-06-01 05:57:54', '9a884ea3716488341f3cb44aba4aed');
+(2, 'demo', 'ximnewaz@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '2021-06-01 05:57:54', '9a884ea3716488341f3cb44aba4aed'),
+(3, 'Afroza', 'demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '2021-09-23 11:19:43', '81dc9bdb52d04dc20036dbd8313ed055');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointment`
+--
+
+CREATE TABLE `appointment` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `doctor_id` int(11) DEFAULT NULL,
+  `date_time` datetime DEFAULT current_timestamp(),
+  `serial` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`id`, `user_id`, `doctor_id`, `date_time`, `serial`) VALUES
+(0, 1, 0, '2021-09-04 00:00:00', NULL),
+(1, 5, 0, '2021-09-23 03:00:00', '3'),
+(2, 1, 0, '2021-09-23 15:57:07', '1'),
+(3, 4, 0, '2021-09-23 16:13:54', '2');
 
 -- --------------------------------------------------------
 
@@ -60,6 +86,34 @@ CREATE TABLE `company` (
   `registration_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctors`
+--
+
+CREATE TABLE `doctors` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `pass` varchar(50) DEFAULT NULL,
+  `contact_no` varchar(20) DEFAULT NULL,
+  `token` varchar(100) DEFAULT NULL,
+  `speciality` varchar(20) DEFAULT NULL,
+  `visit_fee` varchar(10) DEFAULT NULL,
+  `chamber_time_start` varchar(10) DEFAULT NULL,
+  `chamber_time_end` varchar(10) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
+  `reg_date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `name`, `email`, `pass`, `contact_no`, `token`, `speciality`, `visit_fee`, `chamber_time_start`, `chamber_time_end`, `status`, `reg_date`) VALUES
+(0, 'Afroza Sultana', 'demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456789', 'bbab683c29a53632323d2dc9339e45', 'Neurosurgeon', '500', '10 AM', '2 PM', 1, '2021-09-23 17:28:31');
 
 -- --------------------------------------------------------
 
@@ -173,7 +227,8 @@ INSERT INTO `medicine_orders` (`id`, `user_id`, `product_id`, `quantity`, `order
 (84, 1, 12, 1, '2021-06-18 21:43:00', 350, 'Delivered', 'Test 1 2 3 4', 'Nagad'),
 (85, 1, 13, 1, '2021-06-18 21:47:26', 130, 'in Process', 'Test 1 2 3 4', 'Your Point'),
 (86, 1, 11, 1, '2021-06-18 21:59:24', NULL, 'Delivered', NULL, NULL),
-(87, 1, 13, 1, '2021-06-18 22:00:11', 130, 'in Process', 'Test 1 2 3 4', 'Your Point');
+(87, 1, 13, 1, '2021-06-18 22:00:11', 130, 'in Process', 'Test 1 2 3 4', 'Your Point'),
+(88, 4, 18, 1, '2021-09-11 15:01:25', 250, NULL, '', 'bkash');
 
 -- --------------------------------------------------------
 
@@ -296,7 +351,8 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`list_id`, `user_id`, `medicine_id`, `posting date`) VALUES
-(11, 1, 10, '2021-06-13 17:54:21');
+(11, 1, 10, '2021-06-13 17:54:21'),
+(13, 4, 13, '2021-09-11 14:38:50');
 
 --
 -- Indexes for dumped tables
@@ -309,9 +365,23 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `appointment`
+--
+ALTER TABLE `appointment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `doctor_id` (`doctor_id`);
+
+--
 -- Indexes for table `company`
 --
 ALTER TABLE `company`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doctors`
+--
+ALTER TABLE `doctors`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -379,7 +449,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -397,7 +467,7 @@ ALTER TABLE `medicine`
 -- AUTO_INCREMENT for table `medicine_orders`
 --
 ALTER TABLE `medicine_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
@@ -421,11 +491,18 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `list_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `list_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `appointment`
+--
+ALTER TABLE `appointment`
+  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `doctors` (`id`);
 
 --
 -- Constraints for table `medicine_orders`
