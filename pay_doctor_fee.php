@@ -68,7 +68,12 @@
                             <td><?php echo $doctor_name;?></td>
                             <td><?php echo $appointment_date_time;?></td>
                             <td><?php echo $serial;?></td>
-                            <td><a href="pay_doctor_fee_checkout.php?id=<?php echo $id;?>&amount=<?php echo $row2['visit_fee']; ?>">Pay Now</a></td>
+                            <td><?php if($row['status']=='unpaid'){?>
+                                <a href="pay_doctor_fee_checkout.php?id=<?php echo $id;?>&amount=<?php echo $row2['visit_fee']; ?>&user_id=<?php echo $id;?>">Pay Now</a>
+                                <?php } else {?>
+                                    <a href="<?php echo $row2['meet_link'];?>">Meet Link</a>
+                                <?php }?>
+                                </td>
                         </tr>
                         <?php } ?>
                     </tbody>

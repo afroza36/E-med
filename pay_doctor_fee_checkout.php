@@ -10,20 +10,25 @@
 
     $amount = $_GET['amount'];
     $id = $_GET['id'];
+    $userid = $_GET['user_id'];
 
     if(isset($_POST['submit'])){
+        $id = $_POST['id'];
         $amount = $_POST['amount'];
-        $ref_id = $_POST['id'];
+        $ref_id = $_POST['ref_id'];
         $ref_type = 'user';
         $remark = ' User Doctor Fee';
         $date = date('Y-m-d');
-        $sql = "INSERT INTO `fees`(`fee_amount`, `ref_type`, `ref_id`, `remark`) VALUES ('$amount',$ref_type,'$ref_id','$remark')";
+        $sql = "INSERT INTO `fees`(`fee_amount`, `ref_type`, `ref_id`, `remark`) VALUES ('$amount','$ref_type','$ref_id','$remark')";
+        print($sql);
+        
         $query = mysqli_query($con,$sql);
+        print_r($query);
         if($query){
-            $sql = "UPDATE `doctors` SET `featured`='yes', `featured_date`= '$date' WHERE `id`='$ref_id'";
+            $sql = "UPDATE `appointment` SET `status`='paid' WHERE `id`='$id'";
             $query = mysqli_query($con,$sql);
             echo "<script>alert('Fee added successfully');</script>";
-            header('location:meet_redirect.php');
+            header('location:pay_doctor_fee.php');
         }
     }
 
@@ -63,9 +68,8 @@
                     <div class="card-body">
                         <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
                             <input type = "hidden" name = "amount" value = "<?php echo $amount;?>">
-                            <input type = "hidden" name = "ref_type" value = "<?php echo $ref_type;?>">
-                            <input type = "hidden" name = "ref_id" value = "<?php echo $ref_id;?>">
-                            <input type = "hidden" name = "remark" value = "<?php echo $remark;?>">
+                            <input type = "hidden" name = "id" value = "<?php echo $id;?>">
+                            <input type = "hidden" name = "ref_id" value = "<?php echo $userid;?>">
                             <img src="https://www.logo.wine/a/logo/BKash/BKash-Icon2-Logo.wine.svg"
                                 class="rounded float-left" alt="..." height="200px" width="200px" ;>
                             <input type="radio" name="paymethod" value="bkash" checked="checked"> Bkash

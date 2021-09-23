@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2021 at 06:45 PM
+-- Generation Time: Sep 23, 2021 at 09:09 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -57,15 +57,16 @@ CREATE TABLE `appointment` (
   `user_id` int(11) DEFAULT NULL,
   `doctor_id` int(11) DEFAULT NULL,
   `date_time` datetime DEFAULT current_timestamp(),
-  `serial` varchar(10) DEFAULT NULL
+  `serial` varchar(10) DEFAULT NULL,
+  `status` text NOT NULL DEFAULT 'unpaid'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`id`, `user_id`, `doctor_id`, `date_time`, `serial`) VALUES
-(1, 4, 0, '2021-09-23 22:08:46', '1');
+INSERT INTO `appointment` (`id`, `user_id`, `doctor_id`, `date_time`, `serial`, `status`) VALUES
+(1, 4, 0, '2021-09-23 22:08:46', '1', 'paid');
 
 -- --------------------------------------------------------
 
@@ -114,7 +115,7 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`id`, `name`, `email`, `pass`, `contact_no`, `imgpath`, `token`, `featured`, `featured_date`, `speciality`, `visit_fee`, `chamber_time_start`, `chamber_time_end`, `status`, `reg_date`, `meet_link`) VALUES
-(0, 'Afroza Sultana', 'demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456789', 'UIU-Logo-250.png', 'bbab683c29a53632323d2dc9339e45', 'yes', '2021-09-23', 'Neurosurgeon', '5000', '10 AM', '2 PM', 1, '2021-09-23 17:28:31', NULL);
+(0, 'Afroza Sultana', 'demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456789', 'UIU-Logo-250.png', 'bbab683c29a53632323d2dc9339e45', 'yes', '2021-09-23', 'Neurosurgeon', '5000', '10 AM', '2 PM', 1, '2021-09-23 17:28:31', 'https://meet.google.com/cui-jkho-xnh');
 
 -- --------------------------------------------------------
 
@@ -136,7 +137,8 @@ CREATE TABLE `fees` (
 --
 
 INSERT INTO `fees` (`id`, `ref_id`, `ref_type`, `remark`, `fee_amount`, `date_time`) VALUES
-(0, 0, 'doctor', '02021-09-23emed', '25000', '2021-09-23 21:44:31');
+(1, 0, 'doctor', '02021-09-23emed', '25000', '2021-09-23 21:44:31'),
+(2, 1, 'user', ' User Doctor Fee', '5000', '2021-09-24 01:01:41');
 
 -- --------------------------------------------------------
 
@@ -491,6 +493,12 @@ ALTER TABLE `appointment`
 --
 ALTER TABLE `company`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `fees`
+--
+ALTER TABLE `fees`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `medicine`

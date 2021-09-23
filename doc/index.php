@@ -40,6 +40,7 @@
                                             <th>Doctor Name</th>
                                             <th>Appointment DateTime</th>
                                             <th>Serial</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -73,6 +74,7 @@
                                             <td><?php echo $doctor_name;?></td>
                                             <td><?php echo $appointment_date_time;?></td>
                                             <td><?php echo $serial;?></td>
+                                            <td><?php echo $row['status'];?></td>
                                             <td><a href="put_serial.php?id=<?php echo $id;?>" disabled=<?php if($serial !='') echo "disabled" ?>>Give Serial</a></td>
                                         </tr>
                                         <?php } ?>

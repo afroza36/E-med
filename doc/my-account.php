@@ -84,8 +84,13 @@
                 $fee = $_POST['fee'];
                 $start = $_POST['start'];
                 $end = $_POST['end'];
+                $meetlink = $_POST['meetlink'];
                 $imgpath = $_FILES["fileToUpload"]["name"];
-                $query=mysqli_query($con,"update doctors set name='$name', email = '$email', contact_no='$contact', speciality='$specialization', visit_fee ='$fee', chamber_time_start = '$start', chamber_time_end = '$end', imgpath = '$imgpath' where id='".$_SESSION['id']."'");
+                if($imgpath == ""){
+                    $query=mysqli_query($con,"update doctors set name='$name', email = '$email', contact_no='$contact', speciality='$specialization', visit_fee ='$fee', chamber_time_start = '$start', chamber_time_end = '$end', meet_link = '$meetlink' where id='".$_SESSION['id']."'");
+                }else{
+                    $query=mysqli_query($con,"update doctors set name='$name', email = '$email', contact_no='$contact', speciality='$specialization', visit_fee ='$fee', chamber_time_start = '$start', chamber_time_end = '$end', imgpath = '$imgpath', meet_link = '$meetlink' where id='".$_SESSION['id']."'");
+                }
                 if($query)
                 {
                     $_SESSION['alert'] = "Profile Updated Successfully";
@@ -207,6 +212,12 @@
                                         <input class="form-control" type="text" value="<?php echo $row['chamber_time_end']; ?>" name = 'end'>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Meet Link For Patient</label>
+                                        <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="<?php echo $row['meet_link']; ?>" name = 'meetlink'>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Upload profile picture</label>
@@ -265,6 +276,12 @@
                                         <label class="col-lg-3 col-form-label form-control-label">Chember Time End</label>
                                         <div class="col-lg-9">
                                         <input class="form-control" type="text" value="<?php echo $row['chamber_time_end']; ?>" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">Meet Link For Patient</label>
+                                        <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="<?php echo $row['meet_link']; ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
