@@ -8,7 +8,7 @@
     {
         $email=$_POST['email'];
         $password=md5($_POST['password']);
-        $query=mysqli_query($con,"SELECT * FROM doctors WHERE email='$email' and pass='$password'");
+        $query=mysqli_query($con,"SELECT * FROM doctors WHERE email='$email' and pass='$password' and status='1'");
         $num=mysqli_fetch_array($query);
 
         if($num>0)

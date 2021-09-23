@@ -12,7 +12,7 @@
 				<div class="nav-collapse collapse navbar-inverse-collapse">
 					<ul class="nav pull-right">
 						<li><a href="#">
-							Admin
+							<?php echo $_SESSION['alogin']; ?>
 						</a></li>
 						<li class="nav-user dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">

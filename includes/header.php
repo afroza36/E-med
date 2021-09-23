@@ -80,7 +80,7 @@
 					<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
 					<li class="nav-item"><a class="nav-link" href="prescription.php">Upload Prescription</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Buy Prescription</a></li>
-					<!-- <li class="nav-item"><a class="nav-link" href="shop.php">Shop</a></li>		  -->
+					<li class="nav-item"><a class="nav-link" href="doc.php">Doctors</a></li>		 
 					<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
 				</ul>
 			</div>
