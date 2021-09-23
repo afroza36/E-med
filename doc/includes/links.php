@@ -19,5 +19,17 @@
           pointer-events: none;
           color: #ccc;
       }
+      img.displayed {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 150px;
+      }
+      a.btn{
+        display:block;  
+        margin-left: auto;
+        margin-right: auto;
+        width: 20%;
+      }
   </style>
 </head>
