@@ -93,11 +93,9 @@
 								<h5 class='card-title'><?php echo $pro_title?></h5>
 								<p> BDT <?php echo $pro_price?> </p>
 								<?php
-									echo "<a href='doctor_details.php?pid=<?php echo $pro_id;?>' class='btn btn-primary'>More Details</a>";
+									echo "<a href='doctor_details.php?pid=$pro_id' class='btn btn-primary'>More Details</a>";
 									echo"<a href='doc.php?doctor_id=$pro_id&user_id=$id' class='btn btn-primary' style='background-color:#222222'>Get Appointment</a>";
 								?>
-
-
 							</div>
 						</div>
 					</div>
@@ -143,7 +141,7 @@
 								<h5 class='card-title'><?php echo $pro_title?></h5>
 								<p> BDT <?php echo $pro_price?> </p>
 								<?php
-									echo "<a href='doctor_details.php?pid=<?php echo $pro_id;?>' class='btn btn-primary'>More Details</a>";
+									echo "<a href='doctor_details.php?pid=$pro_id' class='btn btn-primary'>More Details</a>";
 									echo"<a href='doc.php?doctor_id=$pro_id&user_id=$id' class='btn btn-primary' style='background-color:#222222'>Get Appointment</a>";
 								?>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2021 at 09:09 PM
+-- Generation Time: Sep 24, 2021 at 06:13 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -61,13 +61,6 @@ CREATE TABLE `appointment` (
   `status` text NOT NULL DEFAULT 'unpaid'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `appointment`
---
-
-INSERT INTO `appointment` (`id`, `user_id`, `doctor_id`, `date_time`, `serial`, `status`) VALUES
-(1, 4, 0, '2021-09-23 22:08:46', '1', 'paid');
-
 -- --------------------------------------------------------
 
 --
@@ -109,13 +102,6 @@ CREATE TABLE `doctors` (
   `reg_date` datetime NOT NULL DEFAULT current_timestamp(),
   `meet_link` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `doctors`
---
-
-INSERT INTO `doctors` (`id`, `name`, `email`, `pass`, `contact_no`, `imgpath`, `token`, `featured`, `featured_date`, `speciality`, `visit_fee`, `chamber_time_start`, `chamber_time_end`, `status`, `reg_date`, `meet_link`) VALUES
-(0, 'Afroza Sultana', 'demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123456789', 'UIU-Logo-250.png', 'bbab683c29a53632323d2dc9339e45', 'yes', '2021-09-23', 'Neurosurgeon', '5000', '10 AM', '2 PM', 1, '2021-09-23 17:28:31', 'https://meet.google.com/cui-jkho-xnh');
 
 -- --------------------------------------------------------
 
@@ -486,7 +472,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `company`
