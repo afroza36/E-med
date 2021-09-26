@@ -49,7 +49,7 @@
 	</div>
 	<nav class="navbar navbar-expand-lg" id="navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.php">
+			<a class="navbar-brand" href="../index.php">
 				<h1><span style="color:#E12454">E</span> MED|Doctors</h1>
 			</a>
 			
