@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2021 at 06:13 PM
+-- Generation Time: Sep 26, 2021 at 05:55 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -77,6 +77,29 @@ CREATE TABLE `company` (
   `registration_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`id`, `name`, `email`, `password`, `contact_no`, `address`, `registration_date`, `status`) VALUES
+(1, 'weut', 'x@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '01832455897', '', '2021-09-01 19:03:36', 1),
+(2, 'weut', 'x@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '01832455897', '', '2021-09-01 19:16:20', 1),
+(3, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:16:53', 1),
+(4, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:17:43', 1),
+(5, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:20:45', 1),
+(6, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:21:38', 1),
+(7, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:38:37', 1),
+(8, 'Matlab Dakkhin Chandpur', 'bcd@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '537,maddho kaladi,matlab dakkhin chandpur.', '', '2021-09-01 19:39:13', 1),
+(9, 'Matlab Dakkhin Chandpur', 'rakibul@gmail.com', '202cb962ac59075b964b07152d234b70', '01631697506', '', '2021-09-01 19:42:19', 1),
+(10, 'Matlab Dakkhin Chandpur', 'k@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '0134567889', '', '2021-09-01 19:48:45', 1),
+(11, 'Matlab Dakkhin Chandpur', 'k@gmail.com', 'cfcd208495d565ef66e7dff9f98764da', '09128653423', '', '2021-09-01 20:00:41', 1),
+(12, 'Matlab Dakkhin Chandpur', 'w@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '01832455897', '', '2021-09-01 20:15:16', 1),
+(13, 'Matlab Dakkhin Chandpur', 'islam@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '01832455897', NULL, '2021-09-01 20:35:46', 1),
+(14, 'Matlab Dakkhin Chandpur', 'e@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '01777473208', NULL, '2021-09-01 20:45:29', 1),
+(15, 'Matlab Dakkhin Chandpur', 'pp@gmail.com', '6512bd43d9caa6e02c990b0a82652dca', '01631697506', NULL, '2021-09-07 06:01:02', 1),
+(16, 'Matlab Dakkhin Chandpur', 'altabrakib7@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '01777473208', '537,maddho kaladi,matlab dakkhin chandpur.', '2021-09-21 15:51:22', 1),
+(17, 'medicla', 'altabrakib777@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '09128653423', '537,maddho kaladi,matlab dakkhin chandpur.', '2021-09-26 13:04:23', 1);
 
 -- --------------------------------------------------------
 
@@ -316,6 +339,27 @@ CREATE TABLE `prescription_order` (
   `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `prescription_order`
+--
+
+INSERT INTO `prescription_order` (`id`, `company_id`, `prescription_id`, `quantity`, `amount`, `hospital`, `doctor`, `disease_type`, `payment_method`, `order_status`, `order_date`) VALUES
+(2, 16, 35, 1, '2', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'bkash', 'Pending', '2021-09-21 16:25:09'),
+(3, 16, 35, 1, '2', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'Nagad', 'Pending', '2021-09-21 16:25:27'),
+(4, 16, 35, 1, '2', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'Cash on Delivery', 'Pending', '2021-09-21 16:48:22'),
+(5, 16, 35, 1, '2', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'bkash', 'Pending', '2021-09-26 08:02:57'),
+(6, 16, 35, 1, '50', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'Nagad', 'Pending', '2021-09-26 08:23:49'),
+(7, 17, 35, 1, '50', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'bkash', 'Pending', '2021-09-26 09:22:02'),
+(8, 16, 35, 1, '50', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'bkash', 'Pending', '2021-09-26 10:19:32'),
+(9, 17, 34, 1, '50', 'Normal Disease', 'Ds', 'dsd', 'bkash', 'Pending', '2021-09-26 15:46:22'),
+(10, 17, 33, 1, '50', 'Medium Disease', 'Mr Lorem', 'DCC', 'bkash', 'Pending', '2021-09-26 15:46:22'),
+(11, 17, 32, 1, '50', 'Normal Disease', 'Test', 'DMC', 'bkash', 'Pending', '2021-09-26 15:46:22'),
+(12, 17, 29, 1, '50', 'Deadly Disease', 'Test', 'Test', 'bkash', 'Pending', '2021-09-26 15:46:22'),
+(13, 17, 28, 1, '50', 'Medium Disease', 'Last Test', 'Last test', 'bkash', 'Pending', '2021-09-26 15:46:22'),
+(14, 17, 26, 1, '50', 'Medium Disease', 'Mr Doctor', 'DMC ', 'bkash', 'Pending', '2021-09-26 15:46:22'),
+(15, 17, 25, 1, '50', 'Normal Disease', 'Test', 'Test', 'bkash', 'Pending', '2021-09-26 15:46:22'),
+(16, 17, 24, 1, '50', 'Normal Disease', 'Lorem Ipsum', 'Lorem Ipsum ', 'bkash', 'Pending', '2021-09-26 15:46:22');
+
 -- --------------------------------------------------------
 
 --
@@ -478,7 +522,7 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `fees`
@@ -508,7 +552,7 @@ ALTER TABLE `prescriptions`
 -- AUTO_INCREMENT for table `prescription_order`
 --
 ALTER TABLE `prescription_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`
