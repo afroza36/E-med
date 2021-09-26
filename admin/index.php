@@ -101,7 +101,5 @@
 			</div>
 		</div>
 	</div><!--/.wrapper-->
-
-	
 	<?php include('include/scripts.php')?>
 </body>
