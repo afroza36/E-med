@@ -31,6 +31,16 @@
 
 
 		<ul class="widget-menu unstyled">
+		<li>
+				<a href="manage-doctor.php">
+					<i class="menu-icon icon-group"></i>
+					Manage Doctor
+				</a>
+			</li>
+		</ul>
+
+
+		<ul class="widget-menu unstyled">
 			<li><a href="insert-product.php"><i class="menu-icon icon-paste"></i>Insert Product </a></li>
 			<li><a href="manage-products.php"><i class="menu-icon icon-table"></i>Manage Products </a></li>
 		</ul>
