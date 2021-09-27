@@ -16,7 +16,7 @@
         if($query)
         {               
             echo "<script>alert('You are successfully registered, please login to continue');</script>";        
-            echo '<script>window.location.href = "company_login.php";</script>';
+            echo '<script>window.location.href = "login.php";</script>';
             
 
             //header("location:company_login.php");
@@ -100,7 +100,7 @@
                            
 
                         <div class="sign-up">
-                            Already Have an account? <a href="company_login.php">Login</a>
+                            Already Have an account? <a href="login.php">Login</a>
                         </div>
                     </form>
                 </div>

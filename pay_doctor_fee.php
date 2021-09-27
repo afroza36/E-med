@@ -45,6 +45,7 @@
                             // echo $doc_id;
                             $query = "SELECT * FROM appointment WHERE user_id = '$user_id' AND date(date_time) = '$date' ORDER BY date_time DESC";
                             // echo $query;
+                            // exit();
                             $result = mysqli_query($con, $query);
                             // print_r($result);
                             while($row = mysqli_fetch_array($result)){

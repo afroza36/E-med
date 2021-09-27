@@ -25,7 +25,7 @@
         }else{
             $email=$_POST['email'];
             $_SESSION['errmsg']="Invalid email id or password";
-            header("location:company_login.php");
+            header("location:login.php");
 
             // Email Check
             $email = test_input($_POST["email"]);
@@ -34,7 +34,7 @@
                 $emailErr = "Invalid email format";
                 }
                                     
-            header("location:company_login.php");
+            header("location:login.php");
             exit();
         }
 
@@ -86,7 +86,7 @@
                     <button type="submit" style="background-color: #223A66; color: aliceblue;" class="btn btn-block" name="login">Sign in</button>
                     
                     <div class="sign-up">
-                        Don't have an account? <a href="company_signup.php">Create One</a>
+                        Don't have an account? <a href="signup.php">Create One</a>
                     </div>
                 </form>
             </div>

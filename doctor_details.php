@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <a href='pay_doctor_fee.php?pid=<?php echo $pro_id;?>&&action=getlink' class='btn btn-primary' style='background-color:#E12454'> Get Link </a> 
+                        <a href='pay_doctor_fee.php?pid=<?php echo $pro_id;?>&action=getlink' class='btn btn-primary' style='background-color:#E12454'> Get Link </a> 
                     </div>
 
                 </div>
