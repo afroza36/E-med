@@ -10,7 +10,7 @@ else{
 if(isset($_GET['del']))
 		  {
 		    mysqli_query($con,"delete from medicine where id = '".$_GET['id']."'");
-               $msg="Product deleted !!";
+               
 		  }
 
           header('location:manage-products.php');

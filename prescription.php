@@ -21,7 +21,7 @@
           $temp_name1=$_FILES['image']['tmp_name'];
           move_uploaded_file($temp_name1,"admin/images/prescriptions/$image");
 
-          $query="insert into prescriptions(user_id,hospital,doctor,disease_type,prescription_image) values('".$_SESSION['id']."','$disease_type','$doc_name','$hospital','$image')";
+          $query="insert into prescriptions(user_id,hospital,doctor,disease_type,prescription_image) values('".$_SESSION['id']."', '$hospital', '$doc_name', '$disease_type','$image')";
 
           $run_query=mysqli_query($con,$query);
 

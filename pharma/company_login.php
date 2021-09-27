@@ -25,7 +25,7 @@
         }else{
             $email=$_POST['email'];
             $_SESSION['errmsg']="Invalid email id or password";
-            header("location:login.php");
+            header("location:company_login.php");
 
             // Email Check
             $email = test_input($_POST["email"]);
@@ -34,7 +34,7 @@
                 $emailErr = "Invalid email format";
                 }
                                     
-            header("location:login.php");
+            header("location:company_login.php");
             exit();
         }
 
@@ -56,12 +56,12 @@
 
 
 
-
+    <hr>
     <!-- Login Form -->
-    <div class="global-container">
-        <div class="card login-form">
+    <div class="global-container" >
+        <div class="card login-form" style="width:600px; padding:20px; margin-top:100px; margin-bottom:100px">
         <div class="card-body">
-            <h3 class="card-title text-center">Login To E Med as a Company</h3>
+            <h3 class="card-title text-center">Login To E Med & Buy Prescriptions</h3>
             <div class="card-text">                
               
                 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
@@ -86,7 +86,7 @@
                     <button type="submit" style="background-color: #223A66; color: aliceblue;" class="btn btn-block" name="login">Sign in</button>
                     
                     <div class="sign-up">
-                        Don't have an account? <a href="signup.php">Create One</a>
+                        Don't have an account? <a href="company_signup.php">Create One</a>
                     </div>
                 </form>
             </div>

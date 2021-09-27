@@ -16,7 +16,7 @@
         if($query)
         {               
             echo "<script>alert('You are successfully registered, please login to continue');</script>";        
-            echo '<script>window.location.href = "login.php";</script>';
+            echo '<script>window.location.href = "company_login.php";</script>';
             
 
             //header("location:company_login.php");
@@ -33,7 +33,7 @@
 <html lang="en">
 
 <head>
-    <title>E Med - User Sign Up</title>
+    <title>E Med - Sign Up</title>
     <?php include('includes/links.php')?>
 
     <!-- Checking password and confirm password -->
@@ -56,11 +56,11 @@
     <!-- Header End -->
 
     <!-- Login Form -->
-
+    <hr>
     <div class="global-container">
-        <div class="card login-form">
+        <div class="card login-form" style="width:600px; margin-top:100px; padding:20px; margin-bottom:100px"> 
             <div class="card-body">
-                <h3 class="card-title text-center">Sign Up To E Med as a Company</h3>
+                <h3 class="card-title text-center">Sign Up To E Med & Buy Prescriptions</h3>
                 <div class="card-text">
                     <form role="form" action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post"
                         name="register" onSubmit="return valid();">
@@ -93,14 +93,15 @@
                         </div>
                         <div class="form-group">
                             <label for="con_password">Address</label>
-                            <textarea name="address" class="form-control form-control-sm" id="address" required></textarea>
+                            <textarea name="address" class="form-control form-control-sm" id="address"
+                                required></textarea>
                         </div>
-                        <button type="submit" name="submit" id="btnSubmit" style="background-color: #223A66; color: aliceblue;"
-                            class="btn btn-block">Sign up</button>
-                           
+                        <button type="submit" name="submit" id="btnSubmit"
+                            style="background-color: #223A66; color: aliceblue;" class="btn btn-block">Sign up</button>
+
 
                         <div class="sign-up">
-                            Already Have an account? <a href="login.php">Login</a>
+                            Already Have an account? <a href="company_login.php">Login</a>
                         </div>
                     </form>
                 </div>
@@ -122,26 +123,27 @@
     <?php include('includes/scripts.php'); ?>
     <!-- Checking User Availability -->
     <script>
-    	$(document).ready(function(){
-        $('#email').blur(function(){
-        	 $('#btnSubmit').prop('disabled', false);
-        	 $("#user-availability-status1").html("");
-				  $.ajax({
-				    url: 'company_check_availability.php',
-				    type: 'POST',
-				    data: 'email=' + $("#email").val()
-				  }).done(function(data) {
-				    //some code going here if success 
-				    if(data=='exist'){
-				    	$("#user-availability-status1").html('<span style="color:red;">Email Address already exist!</span>');
-				    	$('#btnSubmit').prop('disabled', true);
-				    }
-				    
-				  }).fail(function() {
-				     // alert
-				  });
+        $(document).ready(function () {
+            $('#email').blur(function () {
+                $('#btnSubmit').prop('disabled', false);
+                $("#user-availability-status1").html("");
+                $.ajax({
+                    url: 'company_check_availability.php',
+                    type: 'POST',
+                    data: 'email=' + $("#email").val()
+                }).done(function (data) {
+                    //some code going here if success 
+                    if (data == 'exist') {
+                        $("#user-availability-status1").html(
+                            '<span style="color:red;">Email Address already exist!</span>');
+                        $('#btnSubmit').prop('disabled', true);
+                    }
+
+                }).fail(function () {
+                    // alert
+                });
+            });
         });
-    	});
     </script>
 </body>
 

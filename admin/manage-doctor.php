@@ -9,7 +9,7 @@ else{
 
 if(isset($_GET['del']))
 	{
-		mysqli_query($con,"delete from doctors where id = '".$_GET['id']."'");
+		mysqli_query($con,"delete from user where id = '".$_GET['id']."'");
         
 	}
 
@@ -37,7 +37,7 @@ if(isset($_GET['del']))
 					<div class="content">
 						<div class="module">
 							<div class="module-head">
-								<h3>Manage Doctors</h3>
+								<h3>Manage Users</h3>
 							</div>
 
 							<div class="module-body table">
@@ -58,19 +58,19 @@ if(isset($_GET['del']))
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>Name</th>
+											<th> Name</th>
 											<th>Email </th>
 											<th>Contact no</th>
-											<th>Speciality</th>
-											<th>Visit Fee</th>
-											<th>Reg. Date</th>
+											<th>Shippping Address</th>
+											<th>User Balance</th>
+											<th>Reg. Date </th>
 											<th>Block/Unblock</th>
-											<th>Remove Doctor Permanently</th>
+											<th>Remove User Permanently</th>
 										</tr>
 									</thead>
 
 									<tbody>
-										<?php $query=mysqli_query($con,"select * from doctors");
+										<?php $query=mysqli_query($con,"select * from user");
 											$cnt=1;
 											while($row=mysqli_fetch_array($query))
 											{
@@ -80,17 +80,17 @@ if(isset($_GET['del']))
 											<td><?php echo htmlentities($row['name']);?></td>
 											<td><?php echo htmlentities($row['email']);?></td>
 											<td><?php echo htmlentities($row['contact_no']);?></td>
-											<td><?php echo htmlentities($row['speciality']);?></td>
+											<td><?php echo htmlentities($row['shipping_address']);?></td>
 											<td>
-												<?php echo htmlentities($row['visit_fee']);?>
+												<?php echo htmlentities($row['point']);?>
 											</td>
-											<td><?php echo htmlentities($row['reg_date']);?></td>
+											<td><?php echo htmlentities($row['registration_date']);?></td>
 											<td>
-												<?php if($row['status']=='0'){?>
-												<a href="unblock_doctor.php?id=<?php echo $row['id'];?>"
+												<?php if($row['status']=='1'){?>
+												<a href="unblock_user.php?id=<?php echo $row['id'];?>"
 													class="btn btn-primary">UnBlock</a>
 												<?php  } else{ ?>
-												<a href="block_doctor.php?id=<?php echo $row['id'];?>"
+												<a href="block_user.php?id=<?php echo $row['id'];?>"
 													class="btn btn-danger">Block</a>
 												<?php } ?></td>
 

@@ -17,17 +17,15 @@
                 $query="UPDATE user SET password='$password' WHERE token='$token'";
                 $run_query=mysqli_query($con,$query);
 
-                $host=$_SERVER['HTTP_HOST'];
-                $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-                header("location:http://$host$uri/$extra");
+               
+                header("location:recover_password.php");
                 $_SESSION['errmsg']="Password Changed Successfully";
                 exit();
             }else{
                 // echo $token;
                 $extra="recover_password.php";
-                $host  = $_SERVER['HTTP_HOST'];
-                $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-                header("location:http://$host$uri/$extra");
+                
+                header("location:recover_password.php");
                 $_SESSION['errmsg']="An error has occurred, please try again";
                 exit();
             }

@@ -9,5 +9,5 @@ session_unset();
 ?>
 
 <script language="javascript">
-    document.location="login.php";
+    document.location="company_login.php";
 </script>

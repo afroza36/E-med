@@ -50,8 +50,8 @@
 
 <head>
 
-  <title>E Med - Buy Prescription</title>
-  <?php include('includes/links.php')?>
+	<title>E Med - Buy Prescription</title>
+	<?php include('includes/links.php')?>
 	<style>
 
 	</style>
@@ -59,50 +59,56 @@
 
 <body>
 
-  <header>
-    <?php include('includes/header.php')?>
-  </header>
+	<header>
+		<?php include('includes/header.php')?>
+	</header>
 
-  <section class="page-title">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="block text-center">
-            <h1>ORDER COMPLETED!</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+	<section class="page-title">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8" style="border:1px solid grey; margin-top:100px; padding:20px">
+					<div class="block text-center">
+						<h1 style="color:red">ORDER COMPLETED!</h1> <br>
 
-  <section class="order_prescription section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-        	<br />
-					<h3>Your order has been placed successfully! We will contact you soon and deliver your parcel accordingly.</h3>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="order_prescription section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8 text-center" style="border:1px solid grey; padding:20px;margin-bottom:100px;">
+					<br />
+					<h5>Your order has been placed successfully! We will contact you soon and deliver your parcel
+						accordingly.</h5>
 					<br /><br />
 					Thank You.
-        </div>
-        
-      </div>
-    </div>
-  </section>
+				</div>
+
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</section>
 
 
-  <!-- Footer Start -->
+	<!-- Footer Start -->
 
-  <?php include('includes/footer.php')?>
+	<?php include('includes/footer.php')?>
 
-  <!-- Footer End -->
+	<!-- Footer End -->
 
-  <!--     Essential Scripts    -->
-  <?php include('includes/scripts.php'); ?>
+	<!--     Essential Scripts    -->
+	<?php include('includes/scripts.php'); ?>
 
 	<script>
-	$(document).ready(function(){
-		
-	});
+		$(document).ready(function () {
+
+		});
 	</script>
 </body>
 

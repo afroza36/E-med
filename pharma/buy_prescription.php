@@ -97,7 +97,7 @@
 					</tbody>
 					</table>
 					
-					<a id="btn_buy_prescription" class="btn btn-danger btn-lg" href="#" style="position:fixed; bottom:10px; right:10px; padding:15px;"></a>
+					<a id="btn_buy_prescription" class="btn btn-danger btn-lg" href="#" style="position:relative; bottom:10px; right:10px; padding:15px;width:500px"></a>
 					
 					<div id="myModalBuy" class="modal hide" role="dialog">
 						<div class="modal-dialog">

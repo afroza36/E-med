@@ -55,12 +55,12 @@ if(isset($_POST['submit']))
 							</div>
 							<div class="module-body">
 
-								<?php if(isset($_POST['submit']))
+								<!-- <?php if(isset($_POST['submit']))
 									{?>
 								<div class="alert alert-success">
 									<button type="button" class="close" data-dismiss="alert">×</button>		<?php echo $msg; ?>
 								</div>
-								<?php } ?>
+								<?php } ?> -->
 
 
 								<!-- <?php if(isset($_GET['del']))

@@ -6,7 +6,6 @@
 
     if(isset($_POST['submit']))
     {
-		echo "hello";
         $username=$_POST['username'];
         $password=md5($_POST['password']);
         $ret=mysqli_query($con,"SELECT * FROM admin WHERE email='$username' and password='$password'");
@@ -14,14 +13,11 @@
 
         if($num>0)
         {
-			echo $num['id'];
             $extra="change-password.php";
-            $_SESSION['alogin']=$num['username'];
+            $_SESSION['alogin']=$_POST['username'];
             $_SESSION['id']=$num['id'];
-			$extra="change-password.php";
             $host=$_SERVER['HTTP_HOST'];
             $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-			// print("location:http://$host$uri/$extra");
             header("location:http://$host$uri/$extra");
             exit();
         }
@@ -69,7 +65,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="module module-login span4 offset4">
-					<form class="form-vertical" method="POST" action="">
+					<form class="form-vertical" method="post" action="">
 						<div class="module-head">
 							<h3>Sign In</h3>
 						</div>
@@ -101,5 +97,7 @@
 			</div>
 		</div>
 	</div><!--/.wrapper-->
+
+	
 	<?php include('include/scripts.php')?>
 </body>

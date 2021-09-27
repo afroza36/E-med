@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 05:55 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Sep 27, 2021 at 05:21 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,9 +41,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`, `registration_date`, `token`) VALUES
-(1, 'admin', 'forallpurposes3@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '2021-06-01 06:13:13', '740fdae9834f48e13cef70270007e0'),
-(2, 'demo', 'ximnewaz@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '2021-06-01 05:57:54', '9a884ea3716488341f3cb44aba4aed'),
-(3, 'Afroza', 'demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '2021-09-23 11:19:43', '81dc9bdb52d04dc20036dbd8313ed055');
+(1, 'admin', 'forallpurposes3@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '2021-08-28 16:17:12', '740fdae9834f48e13cef70270007e0'),
+(2, 'demo', 'ximnewaz@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '2021-06-01 05:57:54', '9a884ea3716488341f3cb44aba4aed');
 
 -- --------------------------------------------------------
 
@@ -83,23 +81,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `name`, `email`, `password`, `contact_no`, `address`, `registration_date`, `status`) VALUES
-(1, 'weut', 'x@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '01832455897', '', '2021-09-01 19:03:36', 1),
-(2, 'weut', 'x@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '01832455897', '', '2021-09-01 19:16:20', 1),
-(3, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:16:53', 1),
-(4, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:17:43', 1),
-(5, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:20:45', 1),
-(6, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:21:38', 1),
-(7, 'Matlab Dakkhin Chandpur', 'acbd@gmail.com', '37693cfc748049e45d87b8c7d8b9aacd', '01631697506', '', '2021-09-01 19:38:37', 1),
-(8, 'Matlab Dakkhin Chandpur', 'bcd@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '537,maddho kaladi,matlab dakkhin chandpur.', '', '2021-09-01 19:39:13', 1),
-(9, 'Matlab Dakkhin Chandpur', 'rakibul@gmail.com', '202cb962ac59075b964b07152d234b70', '01631697506', '', '2021-09-01 19:42:19', 1),
-(10, 'Matlab Dakkhin Chandpur', 'k@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '0134567889', '', '2021-09-01 19:48:45', 1),
-(11, 'Matlab Dakkhin Chandpur', 'k@gmail.com', 'cfcd208495d565ef66e7dff9f98764da', '09128653423', '', '2021-09-01 20:00:41', 1),
-(12, 'Matlab Dakkhin Chandpur', 'w@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '01832455897', '', '2021-09-01 20:15:16', 1),
-(13, 'Matlab Dakkhin Chandpur', 'islam@gmail.com', 'c20ad4d76fe97759aa27a0c99bff6710', '01832455897', NULL, '2021-09-01 20:35:46', 1),
-(14, 'Matlab Dakkhin Chandpur', 'e@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '01777473208', NULL, '2021-09-01 20:45:29', 1),
-(15, 'Matlab Dakkhin Chandpur', 'pp@gmail.com', '6512bd43d9caa6e02c990b0a82652dca', '01631697506', NULL, '2021-09-07 06:01:02', 1),
-(16, 'Matlab Dakkhin Chandpur', 'altabrakib7@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '01777473208', '537,maddho kaladi,matlab dakkhin chandpur.', '2021-09-21 15:51:22', 1),
-(17, 'medicla', 'altabrakib777@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '09128653423', '537,maddho kaladi,matlab dakkhin chandpur.', '2021-09-26 13:04:23', 1);
+(1, 'xyz', 'xyz@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '1234', '12343', '2021-09-27 09:22:50', 1);
 
 -- --------------------------------------------------------
 
@@ -125,6 +107,13 @@ CREATE TABLE `doctors` (
   `reg_date` datetime NOT NULL DEFAULT current_timestamp(),
   `meet_link` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `name`, `email`, `pass`, `contact_no`, `imgpath`, `token`, `featured`, `featured_date`, `speciality`, `visit_fee`, `chamber_time_start`, `chamber_time_end`, `status`, `reg_date`, `meet_link`) VALUES
+(1, 'Jack Jemon', 'forallpurposes3@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '123', NULL, 'a890d5ef9f9bb6acda885219576d12', 'no', NULL, NULL, NULL, NULL, NULL, 1, '2021-09-27 19:29:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -176,15 +165,17 @@ CREATE TABLE `medicine` (
 --
 
 INSERT INTO `medicine` (`id`, `name`, `company`, `price`, `image1`, `image2`, `image3`, `description`, `shipping_charge`, `stock`, `product_availability`, `feature`, `posting_date`) VALUES
-(2, 'Napa ', 'Square', '100', 'v.jpg', 'napa.jpg', 'neo.jpg', 'Lorem&nbsp; Ipsum', '10', 10, 'In Stock', 'yes', '2021-06-03 06:06:50'),
+(2, 'Napa ', 'Square', '80', 'v.jpg', 'panawell.jpg', 'neo.jpg', '																						Lorem&nbsp; Ipsum test', '10', 100, '<br />\r\n<b>Notice</b>:  Undefined index: productAvailability in <b>C:XAMPPhtdocsJIMEmedadminedit-products.php</b> on line <b>144</b><br />\r\n', 'yes', '2021-06-20 07:55:35'),
 (10, 'Ace', 'Square', '120', 'napa.jpg', 'napa.jpg', 'ace.jpg', '											Lorem Ipsum											', '100', 0, 'Out of Stock', 'yes', '2021-06-19 08:23:34'),
-(11, 'Vitamin', 'ABCD', '1000', 'Vicks_AU_Cough_2in1_Syrup_front.jpg', 'Vicks_AU_Cough_2in1_Syrup_front.jpg', 'Vicks_AU_Cough_2in1_Syrup_front.jpg', 'Lorem Ipsum', '20', 5, 'In Stock', 'yes', '2021-06-05 19:48:27'),
+(11, 'Vitamin', 'ABCD', '1000', 'Vicks_AU_Cough_2in1_Syrup_front.jpg', 'Vicks_AU_Cough_2in1_Syrup_front.jpg', 'Vicks_AU_Cough_2in1_Syrup_front.jpg', '																						Lorem Ipsum Demo											', '20', 100, 'In Stock', 'yes', '2021-06-20 07:56:13'),
 (12, 'Vitamin A', 'Lorem', '300', 'vitamin a.jpg', 'vitamin a.jpg', 'vitamin a.jpg', 'Lorem Ipsum', '50', 10, 'In Stock', 'yes', '2021-06-10 11:12:28'),
-(13, 'Vitamin D', 'Lorem', '100', 'vitamin d.jpg', 'vitamin d.jpg', 'vitamin d.jpg', 'Lorem Ipsum', '30', 8, 'In Stock', 'yes', '2021-06-10 11:13:09'),
+(13, 'Vitamin D', 'Lorem', '90', 'vitamin d.jpg', 'vitamin d.jpg', 'vitamin d.jpg', '											Lorem Ipsum											', '0', 8, '<br />\r\n<b>Notice</b>:  Undefined index: productAvailability in <b>C:XAMPPhtdocsJIMEmedadminedit-products.php</b> on line <b>144</b><br />\r\n', 'yes', '2021-07-05 15:34:06'),
 (14, 'Vitamin D3', 'Lorem', '1800', 'omega3.jpg', 'omega3.jpg', 'omega3.jpg', 'Lorem Ipsum', '20', 0, 'Out of Stock', 'no', '2021-06-10 11:13:47'),
-(16, 'Eye Drop', 'Lorem', '150', '6158jBL6lbL._SL1080_.jpg', 'tearon.jpg', 'tearon.jpg', 'Lorem Ipsum', '20', 10, 'In Stock', 'yes', '2021-06-10 12:05:19'),
+(16, 'Eye Drop', 'Lorem', '50', '6158jBL6lbL._SL1080_.jpg', 'tearon.jpg', 'tearon.jpg', '																																	Lorem Ipsum																																	', '10', 10, 'In Stock', 'yes', '2021-09-27 11:06:36'),
 (17, 'Nose Drop', 'Lorem Ipsum', '400', 'nasivion-classic-adult-0-05-nasal-spray-0.png', 'nasivion-classic-adult-0-05-nasal-spray-0.png', 'nasivion-classic-adult-0-05-nasal-spray-0.png', 'Lorem Ipsum', '20', 100, 'In Stock', 'no', '2021-06-10 12:10:43'),
-(18, 'Panawell', 'Lorem Ipsum', '200', 'panawell.jpg', 'panawell.jpg', 'panawell.jpg', 'Lorem Ipsum', '50', 10, 'In Stock', 'no', '2021-06-10 12:17:00');
+(18, 'Panawell', 'Lorem Ipsum', '200', 'panawell.jpg', 'panawell.jpg', 'panawell.jpg', 'Lorem Ipsum', '50', 10, 'In Stock', 'no', '2021-06-10 12:17:00'),
+(19, 'Ace', 'lorem', '20', 'ace.jpg', '', '', 'lorem', '30', 8, 'In Stock', 'no', '2021-06-19 10:05:14'),
+(20, 'ere', 'ere', '122', 'vitamin a.jpg', '', '', 'lorem ipsum', '10', 10, 'In Stock', 'no', '2021-06-20 07:53:54');
 
 -- --------------------------------------------------------
 
@@ -262,7 +253,46 @@ INSERT INTO `medicine_orders` (`id`, `user_id`, `product_id`, `quantity`, `order
 (85, 1, 13, 1, '2021-06-18 21:47:26', 130, 'in Process', 'Test 1 2 3 4', 'Your Point'),
 (86, 1, 11, 1, '2021-06-18 21:59:24', NULL, 'Delivered', NULL, NULL),
 (87, 1, 13, 1, '2021-06-18 22:00:11', 130, 'in Process', 'Test 1 2 3 4', 'Your Point'),
-(88, 4, 18, 1, '2021-09-11 15:01:25', 250, NULL, '', 'bkash');
+(88, 1, 12, 1, '2021-06-19 09:15:50', 480, NULL, 'Test 1 2 3 4', 'Cash on Delivery'),
+(89, 1, 13, 1, '2021-06-19 09:15:50', 480, NULL, 'Test 1 2 3 4', 'Cash on Delivery'),
+(90, 1, 2, 2, '2021-06-19 10:02:04', NULL, 'in Process', NULL, NULL),
+(91, 1, 13, 1, '2021-06-19 10:02:04', NULL, NULL, NULL, NULL),
+(92, 1, 13, 1, '2021-06-19 10:02:58', 130, NULL, 'Test 1 2 3 4', 'Your Point'),
+(93, 1, 13, 1, '2021-06-19 10:02:58', 130, NULL, 'Test 1 2 3 4', 'Your Point'),
+(94, 1, 16, 1, '2021-06-19 10:03:35', 170, 'in Process', 'Test 1 2 3 4', 'bkash'),
+(95, 1, 13, 1, '2021-06-19 10:03:35', 170, 'Delivered', 'Test 1 2 3 4', 'bkash'),
+(96, 1, 13, 1, '2021-06-19 10:17:28', 130, 'Delivered', 'Test 1 2 3 4', 'Your Point'),
+(97, 1, 13, 1, '2021-06-20 02:56:18', 130, NULL, 'Test 1 2 3 4', 'Your Point'),
+(98, 1, 13, 1, '2021-06-20 03:42:54', NULL, 'in Process', NULL, NULL),
+(99, 1, 13, 1, '2021-06-20 03:46:08', 170, NULL, 'Test 1 2 3 4', 'bkash'),
+(100, 1, 16, 1, '2021-06-20 03:46:30', NULL, 'Delivered', NULL, NULL),
+(101, 1, 12, 2, '2021-06-20 03:47:38', 650, NULL, 'Test 1 2 3 4', 'bkash'),
+(102, 1, 18, 1, '2021-06-20 03:49:18', NULL, NULL, NULL, NULL),
+(103, 1, 16, 1, '2021-06-20 03:51:02', NULL, NULL, NULL, NULL),
+(104, 1, 12, 1, '2021-06-20 03:51:23', NULL, NULL, NULL, NULL),
+(105, 1, 13, 1, '2021-06-20 07:10:31', 130, NULL, 'Test 1 2 3 4', 'bkash'),
+(106, 1, 13, 1, '2021-06-20 07:48:23', 130, 'Delivered', 'Test 1 2 3 4', 'Your Point'),
+(107, 6, 13, 1, '2021-07-05 15:34:17', 90, NULL, '', 'Your Point'),
+(108, 1, 12, 1, '2021-09-01 18:16:10', 350, NULL, 'Test 1 2 3 4', 'Cash on Delivery'),
+(109, 1, 12, 1, '2021-09-11 11:00:16', 350, NULL, 'Test 1 2 3 4', 'Your Point'),
+(110, 1, 16, 1, '2021-09-11 11:01:43', 170, NULL, 'Test 1 2 3 4', 'bkash'),
+(111, 1, 16, 1, '2021-09-11 11:03:17', 170, NULL, 'Test 1 2 3 4', 'bkash'),
+(112, 1, 12, 1, '2021-09-11 18:18:58', NULL, NULL, NULL, NULL),
+(113, 1, 16, 1, '2021-09-12 06:05:27', 170, 'Delivered', 'Test 1 2 3 4', 'Cash on Delivery'),
+(114, 1, 16, 1, '2021-09-12 06:09:28', 170, NULL, 'Test 1 2 3 4', 'Cash on Delivery'),
+(115, 1, 16, 1, '2021-09-12 06:51:54', NULL, NULL, NULL, NULL),
+(116, 1, 12, 1, '2021-09-12 06:52:12', NULL, NULL, NULL, NULL),
+(117, 1, 16, 1, '2021-09-12 06:52:12', NULL, 'in Process', NULL, NULL),
+(118, 1, 16, 1, '2021-09-12 06:56:16', 170, NULL, 'Test 1 2 3 4', 'Your Point'),
+(119, 1, 16, 1, '2021-09-12 06:56:16', NULL, NULL, NULL, NULL),
+(120, 1, 12, 1, '2021-09-12 07:31:31', 350, NULL, 'Test 1 2 3 4', 'bkash'),
+(121, 1, 16, 1, '2021-09-12 07:31:31', NULL, NULL, NULL, NULL),
+(122, 1, 16, 1, '2021-09-12 07:32:22', 170, NULL, 'Test 1 2 3 4', 'Your Point'),
+(123, 1, 16, 1, '2021-09-12 07:32:22', NULL, NULL, NULL, NULL),
+(124, 1, 12, 1, '2021-09-12 09:02:20', 350, NULL, 'Test 1 2 3 4', 'Cash on Delivery'),
+(125, 1, 19, 1, '2021-09-12 09:03:51', 50, NULL, 'Test 1 2 3 4', 'Your Point'),
+(126, 1, 16, 1, '2021-09-27 11:06:50', 60, NULL, 'Test 1 2 3 4', 'Your Point'),
+(127, 1, 16, 1, '2021-09-27 11:13:51', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -308,16 +338,10 @@ CREATE TABLE `prescriptions` (
 --
 
 INSERT INTO `prescriptions` (`id`, `user_id`, `hospital`, `doctor`, `disease_type`, `prescription_image`, `upload_date`, `status`) VALUES
-(24, 1, 'Normal Disease', 'Lorem Ipsum', 'Lorem Ipsum ', 'image00553-1.jpeg', '2021-06-01 15:32:13', 1),
-(25, 1, 'Normal Disease', 'Test', 'Test', 'image00553-1.jpeg', '2021-06-01 17:26:27', 1),
-(26, 1, 'Medium Disease', 'Mr Doctor', 'DMC ', 'image00553-1.jpeg', '2021-06-01 18:46:38', 1),
-(28, 1, 'Medium Disease', 'Last Test', 'Last test', '193495001_2777709252540321_8990642363353929600_n.jpg', '2021-06-01 20:24:16', 1),
-(29, 4, 'Deadly Disease', 'Test', 'Test', '193495001_2777709252540321_8990642363353929600_n.jpg', '2021-06-02 14:24:45', 1),
-(30, 4, 'Normal Disease', 'Pres 1', 'Pres 1', 'image00553-1.jpeg', '2021-06-02 14:35:18', 0),
-(31, 5, 'Deadly Disease', 'Test', 'Test', 'image00553-1.jpeg', '2021-06-03 04:42:15', 0),
-(32, 1, 'Normal Disease', 'Test', 'DMC', 'pres.jpeg', '2021-06-18 19:30:46', 1),
-(33, 1, 'Medium Disease', 'Mr Lorem', 'DCC', 'pres.jpeg', '2021-06-18 19:33:39', 1),
-(34, 1, 'Normal Disease', 'Ds', 'dsd', 'pres.jpeg', '2021-06-18 21:58:25', 1);
+(51, 1, 'Normal Disease', 'Test', 'Test', 'Indicate-why-the-prescription-is-not-appropriate-as-written.png', '2021-09-12 06:16:29', 1),
+(52, 1, 'Normal Disease', 'Test', 'ssd', 'Indicate-why-the-prescription-is-not-appropriate-as-written.png', '2021-09-12 07:26:38', 1),
+(53, 1, 'Normal Disease', 'Test', 'Test', 'Indicate-why-the-prescription-is-not-appropriate-as-written.png', '2021-09-12 07:27:08', 1),
+(54, 1, 'Normal Disease', 'test', 'test', 'Indicate-why-the-prescription-is-not-appropriate-as-written.png', '2021-09-12 09:03:03', 1);
 
 -- --------------------------------------------------------
 
@@ -344,21 +368,55 @@ CREATE TABLE `prescription_order` (
 --
 
 INSERT INTO `prescription_order` (`id`, `company_id`, `prescription_id`, `quantity`, `amount`, `hospital`, `doctor`, `disease_type`, `payment_method`, `order_status`, `order_date`) VALUES
-(2, 16, 35, 1, '2', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'bkash', 'Pending', '2021-09-21 16:25:09'),
-(3, 16, 35, 1, '2', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'Nagad', 'Pending', '2021-09-21 16:25:27'),
-(4, 16, 35, 1, '2', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'Cash on Delivery', 'Pending', '2021-09-21 16:48:22'),
-(5, 16, 35, 1, '2', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'bkash', 'Pending', '2021-09-26 08:02:57'),
-(6, 16, 35, 1, '50', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'Nagad', 'Pending', '2021-09-26 08:23:49'),
-(7, 17, 35, 1, '50', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'bkash', 'Pending', '2021-09-26 09:22:02'),
-(8, 16, 35, 1, '50', 'Sirajul islam medical college', 'Nazmul islam', 'Deadly Disease', 'bkash', 'Pending', '2021-09-26 10:19:32'),
-(9, 17, 34, 1, '50', 'Normal Disease', 'Ds', 'dsd', 'bkash', 'Pending', '2021-09-26 15:46:22'),
-(10, 17, 33, 1, '50', 'Medium Disease', 'Mr Lorem', 'DCC', 'bkash', 'Pending', '2021-09-26 15:46:22'),
-(11, 17, 32, 1, '50', 'Normal Disease', 'Test', 'DMC', 'bkash', 'Pending', '2021-09-26 15:46:22'),
-(12, 17, 29, 1, '50', 'Deadly Disease', 'Test', 'Test', 'bkash', 'Pending', '2021-09-26 15:46:22'),
-(13, 17, 28, 1, '50', 'Medium Disease', 'Last Test', 'Last test', 'bkash', 'Pending', '2021-09-26 15:46:22'),
-(14, 17, 26, 1, '50', 'Medium Disease', 'Mr Doctor', 'DMC ', 'bkash', 'Pending', '2021-09-26 15:46:22'),
-(15, 17, 25, 1, '50', 'Normal Disease', 'Test', 'Test', 'bkash', 'Pending', '2021-09-26 15:46:22'),
-(16, 17, 24, 1, '50', 'Normal Disease', 'Lorem Ipsum', 'Lorem Ipsum ', 'bkash', 'Pending', '2021-09-26 15:46:22');
+(1, 1, 54, 1, '50', 'Normal Disease', 'test', 'test', 'bkash', 'Pending', '2021-09-27 12:13:45'),
+(2, 1, 53, 1, '50', 'Normal Disease', 'Test', 'Test', 'bkash', 'Pending', '2021-09-27 12:13:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productreviews`
+--
+
+CREATE TABLE `productreviews` (
+  `id` int(11) NOT NULL,
+  `productId` int(11) DEFAULT NULL,
+  `quality` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `value` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `summary` varchar(255) DEFAULT NULL,
+  `review` longtext DEFAULT NULL,
+  `reviewDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `ratting` int(11) NOT NULL,
+  `isapproved` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratting`
+--
+
+CREATE TABLE `ratting` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `ratting` int(11) NOT NULL,
+  `review` varchar(255) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `isapproved` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ratting`
+--
+
+INSERT INTO `ratting` (`id`, `name`, `ratting`, `review`, `pid`, `isapproved`, `time`) VALUES
+(39, 'ok', 5, 'ok', 13, 1, '2021-09-26 06:55:15'),
+(40, 'Newaz', 3, 'Fair', 12, 1, '2021-09-26 06:55:20'),
+(42, 'Newaz', 5, 'Test', 16, 0, '2021-09-27 12:34:59'),
+(43, 'Newaz', 4, 'Good Product', 16, 0, '2021-09-27 12:34:45'),
+(44, 'Newaz', 5, 'good', 16, 1, '2021-09-27 12:35:23');
 
 -- --------------------------------------------------------
 
@@ -384,9 +442,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `contact_no`, `shipping_address`, `registration_date`, `status`, `point`, `token`) VALUES
-(1, 'Sayed Nur E Newaz', 'ximnewaz@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '123456789', 'Test 1 2 3 4', '2021-06-19 08:30:32', 0, 40, '8e921bc85c63cc157bd1c270081f45'),
+(1, 'Sayed Nur E Newaz', 'ximnewaz@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0123213', 'Test 1 2 3 4', '2021-09-27 12:47:34', 0, 120, '8e921bc85c63cc157bd1c270081f45'),
 (4, 'Demo', 'demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '123', NULL, '2021-06-02 14:39:19', 0, 2, 'bc2ea0ea8251054b722290c75a7f4f'),
-(5, 'sayed', 'sayed0newaz@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1234', 'asdasd', '2021-06-03 04:43:14', 0, 1, '487289e0a677524403399fc54644c4');
+(6, 'jim', 'jim@gmail.com', '202cb962ac59075b964b07152d234b70', '123', NULL, '2021-08-28 09:15:15', 0, 110, '99db6f514f5508650324d03c22d32a'),
+(8, 'Demo', 'Demo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '1234', NULL, '2021-09-18 20:34:17', 0, 0, '46a3266dbedbc9c29d8eef931e9c2d');
 
 -- --------------------------------------------------------
 
@@ -406,8 +465,8 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`list_id`, `user_id`, `medicine_id`, `posting date`) VALUES
-(11, 1, 10, '2021-06-13 17:54:21'),
-(13, 4, 13, '2021-09-11 14:38:50');
+(15, 1, 10, '2021-06-20 07:50:54'),
+(19, 1, 12, '2021-09-12 09:07:18');
 
 --
 -- Indexes for dumped tables
@@ -489,6 +548,18 @@ ALTER TABLE `prescription_order`
   ADD KEY `FKimage_orde420554` (`company_id`);
 
 --
+-- Indexes for table `productreviews`
+--
+ALTER TABLE `productreviews`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ratting`
+--
+ALTER TABLE `ratting`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -510,7 +581,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `appointment`
@@ -522,7 +593,13 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `doctors`
+--
+ALTER TABLE `doctors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `fees`
@@ -534,48 +611,53 @@ ALTER TABLE `fees`
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `medicine_orders`
 --
 ALTER TABLE `medicine_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `prescription_order`
 --
 ALTER TABLE `prescription_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `productreviews`
+--
+ALTER TABLE `productreviews`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
+-- AUTO_INCREMENT for table `ratting`
+--
+ALTER TABLE `ratting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `list_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `list_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `appointment`
---
-ALTER TABLE `appointment`
-  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `appointment_ibfk_2` FOREIGN KEY (`doctor_id`) REFERENCES `doctors` (`id`);
 
 --
 -- Constraints for table `medicine_orders`

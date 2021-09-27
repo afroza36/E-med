@@ -101,7 +101,7 @@ if(isset($_GET['action']) && $_GET['action']=='add')
 			</div>
 		</div>
 	
-
+		<?php include('includes/footer.php')?>
 	<!--Scripts -->
 	<?php include('includes/scripts.php')?>
 </body>

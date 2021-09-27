@@ -43,16 +43,26 @@
 			<div class="row">
 				<div class=" col-md-6 ">
 					<div class="block">
-						<h1 style="margin-top:50px; font-size:60px;">Upload Your Prescription And
-							<span style="color:white; text-weight:bold;">Earn Money</span></h1>
+						<h1 style="margin-top:50px; font-size:60px; color:#223A66">Upload Your Prescription And
+							<span style="color:#E12454; text-weight:bold;">Earn Money</span></h1>
 
 						<p style="color:black;">We are providing you this opportunity to earn some money from online, if
 							you have any prescription please upload it to our site and earn money.</p>
 
 						<div class="btn-container mt-5">
-							<a href="prescription.php" class="btn btn-primary">Upload Prescription <i
-									class="icofont-simple-right "></i></a>
-						</div>
+							<div class="row">
+								<div class="col-md-6">
+									<a href="prescription.php" class="btn btn-primary">Upload Prescription <i
+										class="icofont-simple-right "></i>
+									</a> 
+								</div>
+								<div class="col-md-6">
+									<a href="upload-requirements.php" class="btn btn-primary" style="background-color:#223A66;">How To Upload Prescription? 
+									</a> 
+								</div>
+							</div>
+																
+						</div>						
 					</div>
 				</div>
 
@@ -159,9 +169,10 @@
 		</div>
 		<!-- NEW End -->
 	</section>
-
+	<br>
+	<br>
 	<!-- Shop End -->
-
+	<?php include('includes/footer.php')?>
 	<!--Scripts -->
 	<?php include('includes/scripts.php')?>
 

@@ -12,6 +12,8 @@ header('location:login.php');
 }
 else{
 
+    // echo $_SESSION['tp'];
+
     $total_pri=$_SESSION['tp'];
     $user_id=$_SESSION['id'];
 
@@ -25,11 +27,8 @@ else{
             $address=$row['d'];
       
         if($_POST['paymethod']=='Your Point')
-        {
+        {              
             
-               
-            //  echo $current_price;
-           echo $address;
             if($current_price >= $total_pri)
             {
                 // echo "Test";
@@ -46,12 +45,18 @@ else{
                     // echo $rrr;
                     
                 }
+                
+               
 
-                // mysqli_query($con,"update medicine_orders set payment='".$_POST['paymethod']."', amount='".$_SESSION['tp']."', address='$address' where user_id='".$_SESSION['id']."' and payment is null ");
+                echo '<script type="text/javascript">'; 
+                echo'<script>alert("Order Successfull")</script>';
+                echo 'window.location.href = "index.php";';
+                echo '</script>';
+                
 
-            }else{
-                echo'<script>alert("Sorry, your current balance is insufficient")</script>'; 
-                // header('location:index.php');
+            }else{                
+                echo'<script>alert("Order Unsuccessfull! Insufficient Balance")</script>'; 
+                
             } 
         }else{
             $rr=$_SESSION['order_id'];
@@ -65,14 +70,12 @@ else{
                 // echo $rrr;
                 
             }
-            // mysqli_query($con,"update medicine_orders set payment='".$_POST['paymethod']."', amount='".$_SESSION['tp']."', address='$address' where user_id='".$_SESSION['id']."' and payment is null ");
-
-            // echo "Else";
-		
+                        
+            
         }
         unset($_SESSION['cart']);
 
-		header('location:index.php');
+		
         
 
 	}
@@ -153,7 +156,7 @@ else{
 
 
 
-
+    <?php include('includes/footer.php')?>
     <!--Scripts -->
     <?php include('includes/scripts.php')?>
 </body>

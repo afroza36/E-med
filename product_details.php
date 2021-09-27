@@ -120,10 +120,11 @@
                     </a>
                 </div>
             </div>
-            
+
 
             <div class="col-md-6" style="border: 1px solid #E5E5E5; margin-left:10px;  padding:20px;">
                 <h2 style="text-align:center; color: #223A66;"><?php echo $pro_title?></h2>
+
                 <div class="row">
                     <div class="col-md-5">
                         <h5 style="color:#666666">AVAILABILITY:</h5>
@@ -154,7 +155,58 @@
                         <?php 
                             echo "$charge BDT";
                         ?>
+
                     </div>
+
+                    <div class="col-md-12">
+
+                        <?php $rt=mysqli_query($con,"select * from ratting where pid='$pid'");
+                        $num=mysqli_num_rows($rt);
+                        {
+                        ?>
+                        <div class="rating-reviews m-t-20">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <!--<div class="rating rateit-small"></div>-->
+                                    <?php 
+											$pid=$_GET['pid'];
+											$sel="SELECT ROUND(AVG(ratting),1) as r FROM ratting WHERE pid='$pid' AND isapproved='1'";
+											$rs=mysqli_query($con,$sel);
+								 			$rss=mysqli_fetch_array($rs);
+										?>
+
+                                    <?php 
+								
+								    
+								    $i = 1;
+                                    while ($i <= 5) {
+                                        
+                                        if ($i <= $rss['r']) {
+                                            
+                                            echo '<span class="icofont-star checked"></span>';
+                                        }else {
+                                           
+                                        echo '<span class="icofont-star"></span>';
+                                        }
+                                        $i++;
+                                    }
+								    
+																			    ?>
+
+
+
+
+
+                                </div>
+                                <div class="col-sm-8">
+
+                                </div>
+                            </div><!-- /.row -->
+                        </div><!-- /.rating-reviews -->
+
+                        <?php } ?>
+                    </div>
+
 
                     <div class="col-md-12">
                         <hr style="color:#666666">
@@ -186,8 +238,16 @@
 								echo"<a href='#' class='btn btn-primary' style='background-color:white; color:red;'>Out of Stock</a>";
 							}
 						?>
-                        <a href='product_details.php?pid=<?php echo $pro_id;?>&&action=wishlist' tittle='wishlist' class='btn btn-primary' style='background-color:#E12454'> <i class="icofont-heart icofont-lg"></i></a>
-                        
+                        <a href='product_details.php?pid=<?php echo $pro_id;?>&&action=wishlist' tittle='wishlist'
+                            class='btn btn-primary' style='background-color:#E12454'> <i
+                                class="icofont-heart icofont-lg"></i></a>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="product_feedback.php?pid=<?php echo $pid?>" type="button" class="btn btn-primary" style="padding:5px; margin-left:5px"> Leave A Feedback</a>                          
+                        </div>
                     </div>
 
                 </div>
@@ -196,6 +256,47 @@
             <?php } ?>
         </div>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h3 style="Text-align:center">Product Reviews</h3>
+                <br>
+                <div class="box" style="border:1px solid grey; padding:20px">
+                    <?php
+						$pid=$_GET['pid'];
+						$sel="SELECT * FROM ratting where pid='$pid' AND isapproved='1'";
+						$rs=$con->query($sel);
+						while($row=$rs->fetch_assoc()){
+					?>
+
+                    <h4><?php echo $row['name']; ?></h4>
+                    <p>
+                        <?php for($i=1;$i<=$row['ratting'];$i++){ ?>
+                        <span class="icofont-star checked"></span>
+                        <?php  }?>
+
+                        <?php for($j=1;$j<=5-$row['ratting'];$j++) {?>
+                        <span class="icofont-star "></span>
+                        <?php  } ?>
+                    </p>
+
+                    <p><?php echo $row['review'] ?></p>
+                    <br>
+                    <h6><?php echo $row['reviewdate'];      ?></h6>
+                    <hr />
+                    <?php  } ?>
+
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
 
 
 
@@ -231,12 +332,41 @@
                         <div class='card-body'>
                             <h5 class='card-title'><?php echo $pro_title?></h5>
                             <p> BDT <?php echo $pro_price?> </p>
+
+                            <!-- Review -->
+                            <div class="">
+                                <?php 
+										$pid=$row['id'];
+										$sel="select round(AVG(r.ratting),1) as rr from ratting r
+											join products p ON r.pid = p.id WHERE r.pid='$pid' AND r.isapproved='1'";
+											
+										$rs=mysqli_query($con,$sel);
+										$rss=mysqli_fetch_array($rs);
+									?>
+
+                                <?php 
+										$i = 1;
+											while ($i <= 5) {
+															
+											if ($i <= $rss['rr']) {
+																
+											echo '<span class="icofont-star checked"></span>';
+											}else {
+															
+											echo '<span class="icofont-star"></span>';
+												}
+											$i++;
+											}
+														
+									?>
+                            </div>
+
                             <a href='product_details.php?pid=<?php echo $pro_id;?>' class='btn btn-primary'>More
                                 Details</a>
 
                             <?php
 								if($pro_avail == 'In Stock'){
-									echo"<a href='product_details.php?page=product&action=add&pid= $pro_id' class='btn btn-primary' style='background-color:#222222'>Add To Cart</a>";
+									echo"<a href='product_details.php?&action=add&pid= $pro_id' class='btn btn-primary' style='background-color:#222222'>Add To Cart</a>";
 								}else{
 									echo"<a href='#' class='btn btn-primary' style='background-color:white; color:red;'>Out of Stock</a>";
 											
@@ -259,7 +389,7 @@
 
 
 
-
+    <?php include('includes/footer.php')?>
 
     <!--Scripts -->
     <?php include('includes/scripts.php')?>

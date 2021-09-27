@@ -58,14 +58,14 @@ if(isset($_POST['abcd']))
 				$r=mysqli_fetch_array($r);
 				$r=$r['max(id)'];
 
-				echo $r;
+				// echo $r;
 			for($i=0; $i<count($value); $i++)
 			{
 				$qty=$value[$i]['pid'];
 				$val34=$value[$i]['quantity'];
 				
 
-				$_SESSION['order_id'][$i]=$r+$i+1;
+				$_SESSION['order_id'][$i]=$r+1;
 
 				$run="insert into medicine_orders(user_id,product_id,quantity) values('".$_SESSION['id']."','$qty','$val34')";
 
@@ -294,7 +294,7 @@ if(isset($_POST['abcd']))
 
 
 
-
+	<?php include('includes/footer.php')?>
 
 	<!--Scripts -->
 	<?php include('includes/scripts.php')?>

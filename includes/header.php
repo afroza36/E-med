@@ -2,6 +2,13 @@
 	//  session_start();
 	// include("includes/config.php");
 ?>
+<style>
+	.nav-link{
+		color: black;
+	}
+
+</style>
+
 
 <header>
 	<div class="header-top-bar">
@@ -13,8 +20,7 @@
 						<?php if(strlen($_SESSION['login']))
 							{
 						?>
-						<li class="list-inline-item">
-							<!-- User Name Will be shown here -->
+						<li class="list-inline-item">							
 							| Welcome - <?php echo $_SESSION['name']?>
 						</li>
 						<?php } ?>
@@ -27,7 +33,13 @@
 						<?php if(strlen($_SESSION['login'])==0) 
 							{   ?>
 						<li class="list-inline-item">
-							| <a href="login.php"><i class="icofont-login"></i> Login</a>
+							| <a href="login.php"><i class="icofont-login"></i> User Login</a>
+						</li>
+						<li class="list-inline-item">
+							| <a href="doc/login.php"><i class="icofont-login"></i> Doctor Login</a>
+						</li>
+						<li class="list-inline-item">
+							| <a href="pharma/company_login.php"><i class="icofont-login"></i> Company Login</a>
 						</li>
 						<li class="list-inline-item">
 							| <a href="signup.php"><i class="icofont-sign-in"></i> Sign Up </a>
@@ -79,8 +91,16 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
 					<li class="nav-item"><a class="nav-link" href="prescription.php">Upload Prescription</a></li>
+					<?php if(strlen($_SESSION['login'])==0)
+							{
+						?>
 					<li class="nav-item"><a class="nav-link" href="#">Buy Prescription</a></li>
-					<li class="nav-item"><a class="nav-link" href="doc.php">Doctors</a></li>		 
+					<?php } ?>
+					<?php if(strlen($_SESSION['login'])!=0)
+							{
+						?>
+					<li class="nav-item"><a class="nav-link" href="doc.php">Doctors</a></li>
+					<?php } ?>		 
 					<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
 				</ul>
 			</div>
@@ -93,5 +113,5 @@
 					</button>
 			</form>	
 		</div>
-	</nav>
+	</nav>	
 </header>

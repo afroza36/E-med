@@ -2,8 +2,7 @@
 	session_start();
 	include('include/config.php');
 	if(strlen($_SESSION['alogin'])==0)
-			{
-				// print($_SESSION['alogin']);	
+			{	
 		header('location:index.php');
 		}
 	else{
@@ -84,14 +83,14 @@
 						</div>
 							
 						<div class="module-body">
-							<?php if(isset($_POST['submit']))
+							<!-- <?php if(isset($_POST['submit']))
 								{?>
 									<div class="alert alert-success">
 										<button type="button" class="close" data-dismiss="alert">×</button>
 										<?php echo htmlentities($_SESSION['msg']);?>						
 									</div>
 								<?php } ?>
-								
+								 -->
 								<br>
 
 							<form class="form-horizontal row-fluid" name="chngpwd" method="post" onSubmit="return valid();">

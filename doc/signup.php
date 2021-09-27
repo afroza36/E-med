@@ -76,9 +76,9 @@
     <!-- Login Form -->
 
     <div class="global-container">
-        <div class="card login-form">
+        <div class="card login-form" style="width:600px; padding:20px; margin-top:50px; margin-bottom:50px">
             <div class="card-body">
-                <h3 class="card-title text-center">Sign Up To E Med</h3>
+                <h3 class="card-title text-center">Sign Up To E Med </h3>
                 <div class="card-text">
                     <form role="form" action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post"
                         name="register" onSubmit="return valid();">
